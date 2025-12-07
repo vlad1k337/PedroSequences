@@ -44,4 +44,9 @@ public class ParallelCommandGroup extends PedroCommand {
 
         return finished;
     }
+
+    public void addCommands(PedroCommand... commands)
+    {
+        Collections.addAll(commandList, commands);
+    }
 }

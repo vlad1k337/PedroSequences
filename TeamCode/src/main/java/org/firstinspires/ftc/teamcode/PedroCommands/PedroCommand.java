@@ -8,13 +8,16 @@ abstract public class PedroCommand {
 
     abstract public boolean isFinished();
 
-    void addCommands(PedroCommand... commands)
-    {
-        throw new NotImplementedError("Method is not implemented");
+    public PedroCommand andThen(PedroCommand... commands) {
+        SequentialCommandGroup group = new SequentialCommandGroup(this);
+        group.addCommands(commands);
+
+        return group;
     }
 
-    PedroCommand andThen(PedroCommand... commands) {
-        SequentialCommandGroup group = new SequentialCommandGroup(this);
+    public PedroCommand alongWith(PedroCommand... commands)
+    {
+        ParallelCommandGroup group = new ParallelCommandGroup(this);
         group.addCommands(commands);
 
         return group;

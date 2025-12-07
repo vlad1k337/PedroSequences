@@ -50,7 +50,6 @@ public class SequentialCommandGroup extends PedroCommand {
         return currentCommandIndex == commandList.size();
     }
 
-    @Override
     public void addCommands(PedroCommand... commands)
     {
         Collections.addAll(commandList, commands);
